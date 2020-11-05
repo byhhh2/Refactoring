@@ -13,7 +13,7 @@ public class Database {
     String Driver = "";
     static String url = "jdbc:mysql://localhost:3306/yut?&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false";
     static String userid = "root";
-    static String pwd = "0000";
+    static String pwd = "password";
     static ResultSet resultSet;
 
     public static void connection() {

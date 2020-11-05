@@ -10,7 +10,7 @@ public class InGameController {
     private InGameView _view;
     private InGameData _data;
     private PawnClickListener leftPawnListener, rightPawnListener;
-
+    private double YutResult;
 
     public InGameController() {
 
@@ -189,7 +189,19 @@ public class InGameController {
                 _data.activatedPlayer.isNowAbility1Use=false;
 
             else{   //윷 결과 랜덤으로 뽑기
-                _data.throwResult = randomYutResult();
+                YutResult = Math.random();
+                if (YutResult <= 0.1536)
+                    _data.throwResult =1;
+                else if (YutResult <= 0.4992)
+                    _data.throwResult = 2;
+                else if (YutResult <= 0.7584)
+                    _data.throwResult = 3;
+                else if (YutResult <= 0.8880)
+                    _data.throwResult = 4;
+                else if (YutResult <= 0.9136)
+                    _data.throwResult = 5;
+                else if (YutResult < 1)
+                    _data.throwResult = 6;
             }
 
             _view.lblThrowing.start();  //윷 던지는 모습 보여주기
@@ -337,15 +349,4 @@ public class InGameController {
         GameManager.getInstance().get_inGame().repaint();
     }
 
-    public int randomYutResult()
-    {
-        double YutResult = Math.random();
-        if (YutResult <= 0.1536) return 1;
-        else if (YutResult <= 0.4992) return 2;
-        else if (YutResult <= 0.7584) return 3;
-        else if (YutResult <= 0.8880) return 4;
-        else if (YutResult <= 0.9136) return 5;
-        else if (YutResult < 1) return 6;
-        return 0;
-    }
 }
